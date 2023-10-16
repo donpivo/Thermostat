@@ -2311,10 +2311,10 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "SW_Enter" (shape input) (at 149.86 52.07 180) (fields_autoplaced)
+  (global_label "SW_Enter" (shape input) (at 149.86 49.53 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 27707042-bcbc-43b5-a4e9-7435738eb0e2)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 138.3478 52.07 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 138.3478 49.53 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -2381,10 +2381,10 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "SW_Enter" (shape input) (at 248.92 141.605 180) (fields_autoplaced)
+  (global_label "SW_Enter" (shape input) (at 248.92 153.67 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid b18637cc-f5b4-4e05-a193-5151020200bc)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 237.4078 141.605 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 237.4078 153.67 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -2395,10 +2395,10 @@
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
-  (global_label "SW_Setup" (shape input) (at 248.92 153.67 180) (fields_autoplaced)
+  (global_label "SW_Setup" (shape input) (at 248.92 141.605 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid c6931be8-8dd7-4ec4-abdd-8cffe1304c50)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 236.9845 153.67 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 236.9845 141.605 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -2451,10 +2451,10 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "SW_Setup" (shape input) (at 149.86 49.53 180) (fields_autoplaced)
+  (global_label "SW_Setup" (shape input) (at 149.86 52.07 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid f737db82-6fa2-463e-acb0-0b218d63a8d3)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 137.9245 49.53 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 137.9245 52.07 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -2541,8 +2541,8 @@
     (property "Comments" "" (at 255.905 103.505 0)
       (effects (font (size 1.27 1.27)))
     )
-    (pin "1" (uuid 5ff21d31-767c-481b-925d-8988a0b37e99))
-    (pin "2" (uuid 81d90065-784a-45e4-8bca-cedcd8c04f15))
+    (pin "1" (uuid 6be0a394-7acc-4804-a642-ff1d8d3228d4))
+    (pin "2" (uuid 3a075e17-76d3-4005-91b4-0774d3b99e25))
     (instances
       (project "Thermostat"
         (path "/7c81c780-67df-4790-a5b0-394d6a687d88"
@@ -3090,7 +3090,7 @@
     (property "Datasheet" "" (at 263.525 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 523c0d3a-9fe5-449c-a8e3-098bf4500971))
+    (pin "1" (uuid d2b97095-9802-4e8c-b6bf-e1a85f915dd1))
     (instances
       (project "PowerBoard"
         (path "/57116fad-0655-469c-b20d-c8eac5c3664f"
@@ -3843,8 +3843,8 @@
     (property "Comments" "" (at 255.905 90.805 0)
       (effects (font (size 1.27 1.27)))
     )
-    (pin "1" (uuid 062ef407-3561-47b2-bc3b-dd91d6307e58))
-    (pin "2" (uuid 85c3c52c-c4bb-4978-837d-8ca866648874))
+    (pin "1" (uuid afc6cad0-2f0e-4515-b8c2-6c18efad10d8))
+    (pin "2" (uuid bf094ef3-91a7-49fb-be28-cfdbd3695397))
     (instances
       (project "Thermostat"
         (path "/7c81c780-67df-4790-a5b0-394d6a687d88"
@@ -3869,7 +3869,7 @@
     (property "Datasheet" "" (at 263.525 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid ec88ecd7-e2eb-4872-87bd-34303891a826))
+    (pin "1" (uuid 5d624719-82b0-4d5a-a990-4b05b8393ce2))
     (instances
       (project "PowerBoard"
         (path "/57116fad-0655-469c-b20d-c8eac5c3664f"
