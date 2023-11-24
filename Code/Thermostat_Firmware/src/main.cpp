@@ -59,12 +59,13 @@ void setup()
   pinMode(PIN_SW_PRESET1, INPUT_PULLUP);
   pinMode(PIN_SW_PRESET2, INPUT_PULLUP);
   Serial.begin(115200);
+  // clearEEPROM();
   readEEPROM(0);
   u8g.setColorIndex(1);
   minTemp=1000;
   delay(500);
   // viewEEPROMdata();
-  // clearEEPROM();
+
 }
 
 void loop() 
@@ -106,6 +107,7 @@ void drawTemperatures()
   if(sensorError)
   {
     u8g.print("Sensor error");
+    
   }
   else if(preset1counter>100)
   {
@@ -323,6 +325,7 @@ void handleTemperature()
     digitalWrite(PIN_LED_ERROR, HIGH);
     sensorError=true;
     digitalWrite(PIN_RLY_CTRL, LOW);
+    digitalWrite(PIN_LED_HITEMP, LOW);
   }
   else
   {
@@ -331,41 +334,42 @@ void handleTemperature()
     minTemp=(minTemp>actualTemp)?actualTemp:minTemp;
     digitalWrite(PIN_LED_ERROR, LOW);
     sensorError=false;
-  }
-  switch (mode)
-  {
-  case 0:
-    digitalWrite(PIN_RLY_CTRL, LOW);
-    digitalWrite(PIN_LED_HITEMP, LOW);
-    break;
-  case 1:
-    if(((actualTemp<=setTemp)&&!overtempReached)||(actualTemp<=(setTemp-hysteresis)))
+    switch (mode)
     {
-      digitalWrite(PIN_RLY_CTRL, HIGH);
-      overtempReached=false;
-    }
-    else
-    {
+    case 0:
       digitalWrite(PIN_RLY_CTRL, LOW);
-      overtempReached=true;
-      digitalWrite(PIN_LED_HITEMP, HIGH);
+      digitalWrite(PIN_LED_HITEMP, LOW);
+      break;
+    case 1:
+      if(((actualTemp<=setTemp)&&!overtempReached)||(actualTemp<=(setTemp-hysteresis)))
+      {
+        digitalWrite(PIN_RLY_CTRL, HIGH);
+        overtempReached=false;
+      }
+      else
+      {
+        digitalWrite(PIN_RLY_CTRL, LOW);
+        overtempReached=true;
+        digitalWrite(PIN_LED_HITEMP, HIGH);
+      }
+      digitalWrite(PIN_LED_HITEMP, (actualTemp>setTemp));
+      break;
+    case 2:
+      if((!overtempReached)&&(actualTemp<setTemp))
+      {
+        digitalWrite(PIN_RLY_CTRL, HIGH);
+      }
+      else
+      {
+        overtempReached=true;
+        digitalWrite(PIN_RLY_CTRL, LOW);
+        digitalWrite(PIN_LED_HITEMP, HIGH);
+      }
+    default:
+      break;
     }
-    digitalWrite(PIN_LED_HITEMP, (actualTemp>setTemp));
-    break;
-  case 2:
-    if((!overtempReached)&&(actualTemp<setTemp))
-    {
-      digitalWrite(PIN_RLY_CTRL, HIGH);
-    }
-    else
-    {
-      overtempReached=true;
-      digitalWrite(PIN_RLY_CTRL, LOW);
-      digitalWrite(PIN_LED_HITEMP, HIGH);
-    }
-  default:
-    break;
   }
+  
 }
 
 void saveTempToEEPROM(uint8_t presetId)
@@ -388,6 +392,7 @@ void saveSettingsToEEPROM(uint8_t presetId)
 
 void clearEEPROM()
 {
+  Serial.println("Clearing EEPROM data.");
   for(uint8_t i; i<16; i++)
   {
     EEPROM.write(i, 255);
